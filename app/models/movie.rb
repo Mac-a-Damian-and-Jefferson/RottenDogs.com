@@ -14,6 +14,17 @@ class Movie
 
   def rating
     @rating = @results["tomatoMeter"]
+    end
+
+  def dog_rating
+    if (0..40).to_a.include?(@rating)
+      @dog_rating = "saddog"
+    elsif (41..69).to_a.include?(@rating)
+      @dog_rating = "seriousdog"
+    else
+      @dog_rating = "happydog"
+    end
+    @dog_rating
   end
 
   def plot
