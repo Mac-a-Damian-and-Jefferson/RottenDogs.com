@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    movie_name = params[:movie_name]
+    movie_name = @search
     m = Movie.new(movie_name)
     render json: {Title: m.title,
                   Rating: m.rating,
