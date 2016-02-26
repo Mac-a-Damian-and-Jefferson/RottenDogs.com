@@ -3,8 +3,8 @@ require 'httparty'
 class Movie
   attr_reader :results
 
-  def initialize(movie_name)
-    @web_string = "http://www.omdbapi.com/?t=#{movie_name}&tomatoes=true&type=movie&plot=short&r=json"
+  def initialize(movie_name, plot_size)
+    @web_string = "http://www.omdbapi.com/?t=#{movie_name}&tomatoes=true&type=movie&plot=#{plot_size}&r=json"
     @results = HTTParty.get(@web_string)
   end
 
