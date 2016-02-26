@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
     movie_name = params[:movie_name]
     m = Movie.new(movie_name)
     render json: {Title: m.title,
-                  Rating: m.rating}
+                  Rating: m.rating,
+                  Plot:   m.plot}
   end
 end

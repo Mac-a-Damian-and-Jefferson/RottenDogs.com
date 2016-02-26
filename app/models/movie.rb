@@ -4,9 +4,8 @@ class Movie
   attr_reader :results
 
   def initialize(movie_name)
-    @web_string = "http://www.omdbapi.com/?t=#{movie_name}&tomatoes=true"
+    @web_string = "http://www.omdbapi.com/?t=#{movie_name}&tomatoes=true&type=movie&plot=short&r=json"
     @results = HTTParty.get(@web_string)
-    # p @movie_info
   end
 
   def title
@@ -16,6 +15,9 @@ class Movie
   def rating
     @rating = @results["tomatoMeter"]
   end
-end
 
-# movie = Movie.new("day")
+  def plot
+    p @results
+    @plot = @results["Plot"]
+  end
+end
