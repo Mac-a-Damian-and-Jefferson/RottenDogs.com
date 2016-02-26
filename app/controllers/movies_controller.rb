@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
     render json: {Title: m.title,
                   Plot:   m.plot,
                   TomatoMeter: m.rating,
-                  DogMeter: m.dog_rating}
+                  DogMeter: m.dog_rating,
+                  DogMeterEmoji: m.picture_link}
   end
 end
