@@ -24,20 +24,29 @@ class Photo
     #   puts "Authentication failed : #{e.msg}"
     # end
 
-    list   = flickr.photos.search(:tags => "happydog")
-
-    puts list.length
+    list   = flickr.people.getPhotos(:user_id => "140515576@N07",
+                                     :tags => "seriousdog")
 
     random = rand(list.length)
 
+    farm = list[random].farm
+    server = list[random].server
     id     = list[random].id
     secret = list[random].secret
+
     info = flickr.photos.getInfo :photo_id => id, :secret => secret
 
-    puts info.title           # => "PICT986"
-    puts info.dates.taken
-    puts FlickRaw.url_short(info)    # => "2006-07-06 15:16:18"
+    p "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}.jpg"
 
+    # p FlickRaw.methods
+
+    # puts
+    #
+    # puts info.title           # => "PICT986"
+    # puts info.dates.taken
+    # puts FlickRaw.url_short(info)
+    # puts FlickRaw.to_json(info)    # => "2006-07-06 15:16:18"
+    #
     # sizes = flickr.photos.getSizes :photo_id => id
     #
     # original = sizes.find {|s| s.label == 'Original' }
