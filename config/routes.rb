@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root 'movies#index'
 
   get 'api/v1/search/:movie_name/:plot_size' => 'movies#search'
