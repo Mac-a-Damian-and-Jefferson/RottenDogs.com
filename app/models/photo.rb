@@ -4,14 +4,14 @@ require 'byebug'
 
 class Photo
   attr_reader :picture_link
-  
+
   def initialize(dog_rating)
     FlickRaw.api_key="#{ENV['FLICKR_KEY']}"
     FlickRaw.shared_secret="#{ENV['FLICKR_SECRET']}"
 
     flickr = FlickRaw::Flickr.new
 
-    list   = flickr.people.getPhotos(:user_id => "140515576@N07",
+    list   = flickr.people.getPhotos(:user_id => "#{ENV['FLICKR_USER']}",
                                      :tags => "#{dog_rating}")
 
     random = rand(list.length)
