@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
+
   root 'movies#index'
 
-  get 'api/v1/search/:movie_name/:plot_size' => 'movies#search'
+  get 'api/v1/:movie_name' => 'movies#search'
+  get 'api/v1/:movie_name/:plot_size' => 'movies#search'
   get 'api/v1/search/:movie_name' => 'movies#search'
   get 'movies' => 'movies#index'
   get 'movies/show'

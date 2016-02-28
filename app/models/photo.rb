@@ -3,6 +3,8 @@ require 'flickraw'
 require 'byebug'
 
 class Photo
+  attr_reader :picture_link
+  
   def initialize(dog_rating)
     FlickRaw.api_key="#{ENV['FLICKR_KEY']}"
     FlickRaw.shared_secret="#{ENV['FLICKR_SECRET']}"
@@ -24,10 +26,5 @@ class Photo
     @picture_link = "https://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}.jpg"
 
   end
-
-  def picture_link
-    @picture_link
-  end
-
 
 end

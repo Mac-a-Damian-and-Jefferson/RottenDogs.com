@@ -31,7 +31,7 @@ class Movie
   end
 
   def plot
-    p @results
+    @results
     @plot = @results["Plot"]
   end
 
@@ -39,3 +39,5 @@ class Movie
     @picture_link = Photo.new(@dog_rating).picture_link
   end
 end
+
+# p Movie.new("The Matrix", "full").results

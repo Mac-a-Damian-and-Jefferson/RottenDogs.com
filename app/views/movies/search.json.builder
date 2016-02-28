@@ -1,5 +1,5 @@
 if @movie.movie_name
-  Title: @movie.title
+  { Title: @movie.title
   Plot:  @movie.plot
   TomatoMeter: @movie.rating,
   DogMeter: @movie.dog_rating,
